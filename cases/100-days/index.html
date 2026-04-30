@@ -20,15 +20,7 @@
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
   <style>
-    .case-toc {
-      position: fixed;
-      left: 24px;
-      top: 140px;
-      width: 200px;
-      font-size: 13px;
-      line-height: 1.5;
-      z-index: 10;
-    }
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
     .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
     .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
     .case-toc li { margin: 0; }
@@ -71,11 +63,12 @@
       <span class="case-progress-arrow" aria-hidden="true">▾</span>
     </button>
     <ol class="case-progress-list" id="case-progress-list" hidden>
-      <li><a href="#summary">핵심 정리</a></li>
       <li><a href="#s1">100일이라는 탐구 기간</a></li>
-      <li><a href="#s2">13년 동안 변하지 않은 디자이너의 일</a></li>
-      <li><a href="#s3">화면에서 상태로</a></li>
-      <li><a href="#s4">처음 만든 풍경</a></li>
+      <li><a href="#s2">처음 구현한 데이터 구조</a></li>
+      <li><a href="#s3">LLM이 해석한 데이터</a></li>
+      <li><a href="#s4">화면에서 상태로</a></li>
+      <li><a href="#s5">13년 동안 변하지 않은 디자이너의 일</a></li>
+      <li><a href="#summary">핵심 정리</a></li>
     </ol>
   </nav>
 
@@ -84,11 +77,12 @@
     <aside class="case-toc" aria-label="목차">
       <div class="case-toc-label">목차</div>
       <ol>
-        <li><a href="#summary">핵심 정리</a></li>
         <li><a href="#s1">100일이라는 탐구 기간</a></li>
-        <li><a href="#s2">13년 동안 변하지 않은 디자이너의 일</a></li>
-        <li><a href="#s3">화면에서 상태로</a></li>
-        <li><a href="#s4">처음 만든 풍경</a></li>
+        <li><a href="#s2">처음 구현한 데이터 구조</a></li>
+        <li><a href="#s3">LLM이 해석한 데이터</a></li>
+        <li><a href="#s4">화면에서 상태로</a></li>
+        <li><a href="#s5">13년 동안 변하지 않은 디자이너의 일</a></li>
+        <li><a href="#summary">핵심 정리</a></li>
       </ol>
     </aside>
 
@@ -106,7 +100,73 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="tldr" id="summary">
+        <div class="subsection" id="s1">
+          <h3 class="subsection-title">100일이라는 탐구 기간</h3>
+          <div class="prose">
+            <p>2026년 1월에 퇴사하면서, 100일이라는 탐구 기간을 스스로에게 줬어요. 포트폴리오를 먼저 정리하는 대신 파이썬으로 개인 회고 에이전트를 직접 만들어보기로 했습니다. 소재는 10년 동안 꾸준히 해오던 회고였어요.</p>
+            <p>텔레그램에 던진 메시지를 LLM이 태깅하고, 상태를 계산하고, 정책에 따라 응답하거나 침묵하고, 회고를 생성하는 파이프라인을 만들었습니다. 그리고 매일 직접 사용하면서, 회고가 꾸준히 이어지는지 그리고 실제로 행동이 바뀌는지를 5주 동안 검증했어요.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s2">
+          <h3 class="subsection-title">처음 구현한 데이터 구조</h3>
+          <div class="prose">
+            <p>처음 만든 입력 화면은 정말 단순했어요. 텔레그램에 해시태그로 <code>#기획 작업 끝</code> 같은 식으로 적으면, 그게 구글 시트에 들어가는 정도였습니다. 화면 자체로는 보여줄 게 거의 없는데도, 그 뒤에서 판단이 메시지마다 다르게 일어나고 있다는 게 새삼 신기했어요.</p>
+          </div>
+          <figure>
+            <img src="../../assets/images/agentcat/datatest.png" alt="해시태그로 입력한 첫 테스트" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">해시태그로 입력한 첫 테스트</figcaption>
+          </figure>
+        </div>
+
+        <div class="subsection" id="s3">
+          <h3 class="subsection-title">LLM이 해석한 데이터</h3>
+          <div class="prose">
+            <p>매일 아침이면 어제 데이터를 LLM이 분석해서 메시지를 보내줬습니다. "어제는 회피가 좀 많았네"라든가 "기획 작업이 잘 흐르고 있어" 같은 식으로요. 같은 데이터를 보고도 매번 다르게 해석되는 글이 도착했어요.</p>
+          </div>
+          <figure>
+            <img src="../../assets/images/agentcat/morning_life.png" alt="LLM 분석을 통한 아침 리뷰" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
+            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">LLM 분석을 통한 아침 리뷰</figcaption>
+          </figure>
+
+          <div class="prose" style="margin-top:32px;">
+            <p>직접 만들어보고서야 보인 것들이 있어요. 인터페이스는 텔레그램 창 하나로 고정이지만, 그 뒤의 판단은 메시지마다 새로 짜여요. 디자이너가 설계해야 할 대상이 이 화면에서 저 화면으로의 이동이 아니라, 지금 말을 걸지 침묵할지로 바뀝니다. 측정해야 할 지표도 버튼 클릭률이 아니라 '개입이 적절했는가'로 옮겨가요.</p>
+            <p>보이지 않는 것을 보이게 만든다는 디자이너의 일은 그대로 남아있어요. 다만 보여져야 할 대상과 전달 방식이 다른 모양으로 변하고 있는 거죠. 이 프로젝트는 그 변화를 손에 잡히게 만들어보고 싶었던 시도였습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s4">
+          <h3 class="subsection-title">화면에서 상태로</h3>
+          <div class="prose">
+            <p>화면을 그리던 일이 갑자기 다른 모양이 됐어요. 제가 만들고 있던 걸 정리해보면 이런 식이었습니다.</p>
+
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>과거</th><th>현재</th></tr></thead>
+                <tbody>
+                  <tr><td>화면 (Screen)</td><td>상태 (State)</td></tr>
+                  <tr><td>유저 플로우</td><td>판단 정책</td></tr>
+                  <tr><td>에러 메시지</td><td>개입 강도</td></tr>
+                  <tr><td>Figma</td><td>Python · LLM · Git · Sheets</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>무게중심이 화면에서 상태로, 플로우에서 정책으로, 에러 메시지에서 개입 강도로 이동했어요. 도구도 Figma 한 화면으로 끝나지 않고, 코드와 LLM과 데이터 시트가 동시에 살아 움직였습니다.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="s5">
+          <h3 class="subsection-title">13년 동안 변하지 않은 디자이너의 일</h3>
+          <div class="prose">
+            <p>브랜드 디자인, 그래픽, 웹 에이전시 PM, B2B SaaS 프로덕트 디자인, 프리랜서까지 13년 동안 분야는 계속 바뀌었습니다. 그런데 분야가 바뀌어도 변하지 않는 디자이너의 일이 있다고 늘 느꼈어요.</p>
+            <blockquote>사용자가 원하는 것은 무엇이고, 그 제품의 진짜 매력을 어떻게 전달할 것인가. 보이지 않는 것을 보이게 하는 것이 디자이너의 일이라고 생각해 왔습니다.</blockquote>
+            <p>2025년 후반부터 AI 에이전트, 오픈클로, 자연어 인터페이스 같은 도구들이 빠르게 퍼지는 걸 보면서, 그 본질이 어떻게 바뀔지 다시 들여다보고 싶어졌어요. 고정된 UI에서 사용자가 정해진 옵션을 선택하던 방식에서, 자기 말로 자유롭게 던지면 시스템이 해석하고 돌려주는 방식으로. 통제권의 위치가 옮겨가는 변화였거든요.</p>
+            <p>다만 머리로 아는 것과 직접 만들어보는 건 완전히 다른 일이더라구요. 관찰만으로는 사용자에게 필요한 전달이 어떻게 달라지는지 감이 잡히지 않았어요. 그래서 포트폴리오보다 먼저, 이 변화를 직접 만들면서 이해해보기로 했습니다.</p>
+          </div>
+        </div>
+
+        <div class="tldr" id="summary" style="margin-top:48px;">
           <div class="tldr-result-title">핵심 결과</div>
           <ul class="tldr-list">
             <li>두 달 공백이었던 회고가 5주 동안 매일 이어졌어요. 저녁 회고 39회 발송, 31회 응답(79%). 도구가 환경으로 넘어간 가장 분명한 신호였습니다.</li>
@@ -133,76 +193,13 @@
           <p style="font-size:14px;color:var(--ink-muted);margin-top:8px;">→ <a href="/writing/" style="border-bottom:1px solid var(--ink-muted);">Writing에서 각 글로 더 읽기</a></p>
         </div>
 
-        <div class="subsection" id="s1" style="margin-top:48px;">
-          <h3 class="subsection-title">100일이라는 탐구 기간</h3>
-          <div class="prose">
-            <p>2026년 1월에 퇴사하면서, 100일이라는 탐구 기간을 스스로에게 줬어요. 포트폴리오를 먼저 정리하는 대신 파이썬으로 개인 회고 에이전트를 직접 만들어보기로 했습니다. 소재는 10년 동안 꾸준히 해오던 회고였어요.</p>
-            <p>텔레그램에 던진 메시지를 LLM이 태깅하고, 상태를 계산하고, 정책에 따라 응답하거나 침묵하고, 회고를 생성하는 파이프라인을 만들었습니다. 그리고 매일 직접 사용하면서, 회고가 꾸준히 이어지는지 그리고 실제로 행동이 바뀌는지를 5주 동안 검증했어요.</p>
-          </div>
-        </div>
-
-        <div class="subsection" id="s2">
-          <h3 class="subsection-title">13년 동안 변하지 않은 디자이너의 일</h3>
-          <div class="prose">
-            <p>브랜드 디자인, 그래픽, 웹 에이전시 PM, B2B SaaS 프로덕트 디자인, 프리랜서까지 13년 동안 분야는 계속 바뀌었습니다. 그런데 분야가 바뀌어도 변하지 않는 디자이너의 일이 있다고 늘 느꼈어요.</p>
-            <blockquote>사용자가 원하는 것은 무엇이고, 그 제품의 진짜 매력을 어떻게 전달할 것인가. 보이지 않는 것을 보이게 하는 것이 디자이너의 일이라고 생각해 왔습니다.</blockquote>
-            <p>2025년 후반부터 AI 에이전트, 오픈클로, 자연어 인터페이스 같은 도구들이 빠르게 퍼지는 걸 보면서, 그 본질이 어떻게 바뀔지 다시 들여다보고 싶어졌어요. 고정된 UI에서 사용자가 정해진 옵션을 선택하던 방식에서, 자기 말로 자유롭게 던지면 시스템이 해석하고 돌려주는 방식으로. 통제권의 위치가 옮겨가는 변화였거든요.</p>
-            <p>다만 머리로 아는 것과 직접 만들어보는 건 완전히 다른 일이더라구요. 관찰만으로는 사용자에게 필요한 전달이 어떻게 달라지는지 감이 잡히지 않았어요. 그래서 포트폴리오보다 먼저, 이 변화를 직접 만들면서 이해해보기로 했습니다.</p>
-          </div>
-        </div>
-
-        <div class="subsection" id="s3">
-          <h3 class="subsection-title">화면에서 상태로</h3>
-          <div class="prose">
-            <p>화면을 그리던 일이 갑자기 다른 모양이 됐어요. 제가 만들고 있던 걸 정리해보면 이런 식이었습니다.</p>
-
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>과거</th><th>현재</th></tr></thead>
-                <tbody>
-                  <tr><td>화면 (Screen)</td><td>상태 (State)</td></tr>
-                  <tr><td>유저 플로우</td><td>판단 정책</td></tr>
-                  <tr><td>에러 메시지</td><td>개입 강도</td></tr>
-                  <tr><td>Figma</td><td>Python · LLM · Git · Sheets</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <p>무게중심이 화면에서 상태로, 플로우에서 정책으로, 에러 메시지에서 개입 강도로 이동했어요. 도구도 Figma 한 화면으로 끝나지 않고, 코드와 LLM과 데이터 시트가 동시에 살아 움직였습니다.</p>
-          </div>
-        </div>
-
-        <div class="subsection" id="s4">
-          <h3 class="subsection-title">처음 만든 풍경</h3>
-          <div class="prose">
-            <p>처음 만든 입력 화면은 정말 단순했어요. 텔레그램에 해시태그로 <code>#기획 작업 끝</code> 같은 식으로 적으면, 그게 구글 시트에 들어가는 정도였습니다. 화면 자체로는 보여줄 게 거의 없는데도, 그 뒤에서 판단이 메시지마다 다르게 일어나고 있다는 게 새삼 신기했어요.</p>
-          </div>
-          <figure>
-            <img src="../../assets/images/agentcat/datatest.png" alt="해시태그로 입력한 첫 테스트" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">해시태그로 입력한 첫 테스트</figcaption>
-          </figure>
-
-          <div class="prose" style="margin-top:32px;">
-            <p>매일 아침이면 어제 데이터를 LLM이 분석해서 메시지를 보내줬습니다. "어제는 회피가 좀 많았네"라든가 "기획 작업이 잘 흐르고 있어" 같은 식으로요. 같은 데이터를 보고도 매번 다르게 해석되는 글이 도착했어요.</p>
-          </div>
-          <figure>
-            <img src="../../assets/images/agentcat/morning_life.png" alt="LLM 분석을 통한 아침 리뷰" style="width:100%;max-width:320px;height:auto;margin:32px auto;display:block;border-radius:8px;border:1px solid var(--line);">
-            <figcaption style="text-align:center;font-size:13px;color:var(--ink-muted);margin-top:8px;">LLM 분석을 통한 아침 리뷰</figcaption>
-          </figure>
-
-          <div class="prose" style="margin-top:32px;">
-            <p>직접 만들어보고서야 보인 것들이 있어요. 인터페이스는 텔레그램 창 하나로 고정이지만, 그 뒤의 판단은 메시지마다 새로 짜여요. 디자이너가 설계해야 할 대상이 이 화면에서 저 화면으로의 이동이 아니라, 지금 말을 걸지 침묵할지로 바뀝니다. 측정해야 할 지표도 버튼 클릭률이 아니라 '개입이 적절했는가'로 옮겨가요.</p>
-            <p>보이지 않는 것을 보이게 만든다는 디자이너의 일은 그대로 남아있어요. 다만 보여져야 할 대상과 전달 방식이 다른 모양으로 변하고 있는 거죠. 이 프로젝트는 그 변화를 손에 잡히게 만들어보고 싶었던 시도였습니다.</p>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <div class="container">
       <nav class="case-nav">
         <a href="/cases/">← Case 목록</a>
-        <a href="/cases/daily-loop/">다음: 금동이봇과 대화하기 →</a>
+        <a href="/cases/design-principles/">다음: 금동이봇 설계 원칙 →</a>
       </nav>
     </div>
 
@@ -221,11 +218,12 @@
   <script>
   (function () {
     var sections = [
-      { id: 'summary', label: '핵심 정리' },
       { id: 's1',      label: '100일이라는 탐구 기간' },
-      { id: 's2',      label: '13년 동안 변하지 않은 디자이너의 일' },
-      { id: 's3',      label: '화면에서 상태로' },
-      { id: 's4',      label: '처음 만든 풍경' }
+      { id: 's2',      label: '처음 구현한 데이터 구조' },
+      { id: 's3',      label: 'LLM이 해석한 데이터' },
+      { id: 's4',      label: '화면에서 상태로' },
+      { id: 's5',      label: '13년 동안 변하지 않은 디자이너의 일' },
+      { id: 'summary', label: '핵심 정리' }
     ];
     var wrap   = document.querySelector('.case-progress');
     var btn    = wrap && wrap.querySelector('.case-progress-btn');
