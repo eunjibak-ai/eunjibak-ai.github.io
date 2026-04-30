@@ -19,6 +19,38 @@
   <link rel="canonical" href="https://eunjibak-ai.github.io/cases/100-days/">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc {
+      position: fixed;
+      left: 24px;
+      top: 140px;
+      width: 200px;
+      font-size: 13px;
+      line-height: 1.5;
+      z-index: 10;
+    }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -33,7 +65,32 @@
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#summary">핵심 정리</a></li>
+      <li><a href="#s1">100일이라는 탐구 기간</a></li>
+      <li><a href="#s2">13년 동안 변하지 않은 디자이너의 일</a></li>
+      <li><a href="#s3">화면에서 상태로</a></li>
+      <li><a href="#s4">처음 만든 풍경</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#summary">핵심 정리</a></li>
+        <li><a href="#s1">100일이라는 탐구 기간</a></li>
+        <li><a href="#s2">13년 동안 변하지 않은 디자이너의 일</a></li>
+        <li><a href="#s3">화면에서 상태로</a></li>
+        <li><a href="#s4">처음 만든 풍경</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
@@ -49,7 +106,7 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="tldr">
+        <div class="tldr" id="summary">
           <div class="tldr-result-title">핵심 결과</div>
           <ul class="tldr-list">
             <li>두 달 공백이었던 회고가 5주 동안 매일 이어졌어요. 저녁 회고 39회 발송, 31회 응답(79%). 도구가 환경으로 넘어간 가장 분명한 신호였습니다.</li>
@@ -76,7 +133,7 @@
           <p style="font-size:14px;color:var(--ink-muted);margin-top:8px;">→ <a href="/writing/" style="border-bottom:1px solid var(--ink-muted);">Writing에서 각 글로 더 읽기</a></p>
         </div>
 
-        <div class="subsection" style="margin-top:48px;">
+        <div class="subsection" id="s1" style="margin-top:48px;">
           <h3 class="subsection-title">100일이라는 탐구 기간</h3>
           <div class="prose">
             <p>2026년 1월에 퇴사하면서, 100일이라는 탐구 기간을 스스로에게 줬어요. 포트폴리오를 먼저 정리하는 대신 파이썬으로 개인 회고 에이전트를 직접 만들어보기로 했습니다. 소재는 10년 동안 꾸준히 해오던 회고였어요.</p>
@@ -84,7 +141,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">13년 동안 변하지 않은 디자이너의 일</h3>
           <div class="prose">
             <p>브랜드 디자인, 그래픽, 웹 에이전시 PM, B2B SaaS 프로덕트 디자인, 프리랜서까지 13년 동안 분야는 계속 바뀌었습니다. 그런데 분야가 바뀌어도 변하지 않는 디자이너의 일이 있다고 늘 느꼈어요.</p>
@@ -94,7 +151,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">화면에서 상태로</h3>
           <div class="prose">
             <p>화면을 그리던 일이 갑자기 다른 모양이 됐어요. 제가 만들고 있던 걸 정리해보면 이런 식이었습니다.</p>
@@ -115,7 +172,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">처음 만든 풍경</h3>
           <div class="prose">
             <p>처음 만든 입력 화면은 정말 단순했어요. 텔레그램에 해시태그로 <code>#기획 작업 끝</code> 같은 식으로 적으면, 그게 구글 시트에 들어가는 정도였습니다. 화면 자체로는 보여줄 게 거의 없는데도, 그 뒤에서 판단이 메시지마다 다르게 일어나고 있다는 게 새삼 신기했어요.</p>
@@ -160,6 +217,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 'summary', label: '핵심 정리' },
+      { id: 's1',      label: '100일이라는 탐구 기간' },
+      { id: 's2',      label: '13년 동안 변하지 않은 디자이너의 일' },
+      { id: 's3',      label: '화면에서 상태로' },
+      { id: 's4',      label: '처음 만든 풍경' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>

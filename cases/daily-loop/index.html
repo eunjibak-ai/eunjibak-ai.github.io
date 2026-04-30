@@ -19,6 +19,30 @@
   <link rel="canonical" href="https://eunjibak-ai.github.io/cases/daily-loop/">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <style>
+    .case-toc { position: fixed; left: 24px; top: 140px; width: 200px; font-size: 13px; line-height: 1.5; z-index: 10; }
+    .case-toc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 12px; }
+    .case-toc ol { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .case-toc li { margin: 0; }
+    .case-toc a { display: block; padding: 8px 12px; color: var(--ink-muted); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; transition: color .15s, border-color .15s; }
+    .case-toc a:hover { color: var(--ink); border-left-color: var(--ink); }
+    .case-toc a.is-active { color: var(--ink); border-left-color: var(--ink); }
+    @media (max-width: 1199px) { .case-toc { display: none; } }
+
+    .case-progress { display: none; }
+    @media (max-width: 1199px) {
+      .case-progress { display: block; position: sticky; top: 70px; z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+      .case-progress-btn { -webkit-appearance: none; appearance: none; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; min-height: 48px; max-height: 48px; padding: 0 20px; margin: 0; background: transparent; border: 0; border-radius: 0; font-family: inherit; font-size: 13px; line-height: 1; text-align: left; color: var(--ink); cursor: pointer; box-sizing: border-box; flex-shrink: 0; }
+      .case-progress-current { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+      .case-progress-current::before { content: "현재  ·  "; color: var(--ink-muted); font-weight: 400; }
+      .case-progress-arrow { color: var(--ink-muted); margin-left: 8px; transition: transform .15s; }
+      .case-progress[data-open="true"] .case-progress-arrow { transform: rotate(180deg); }
+      .case-progress-list { list-style: none; margin: 0; padding: 0; background: var(--bg-elevated); border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+      .case-progress-list a { display: block; padding: 12px 20px; color: var(--ink); text-decoration: none; font-size: 14px; border-top: 1px solid var(--line-soft); }
+      .case-progress-list li:first-child a { border-top: 0; }
+      .case-progress-list a.is-active { background: var(--line-soft); color: var(--ink); font-weight: 500; }
+    }
+  </style>
 </head>
 <body>
 
@@ -33,7 +57,34 @@
     </div>
   </nav>
 
+  <nav class="case-progress" aria-label="현재 섹션" data-open="false">
+    <button class="case-progress-btn" type="button" aria-expanded="false" aria-controls="case-progress-list">
+      <span class="case-progress-current" id="case-progress-current">시작</span>
+      <span class="case-progress-arrow" aria-hidden="true">▾</span>
+    </button>
+    <ol class="case-progress-list" id="case-progress-list" hidden>
+      <li><a href="#s1">하루를 관통하는 자기조절 루프</a></li>
+      <li><a href="#s2">먼저, 금동이라는 이름을 빌렸어요</a></li>
+      <li><a href="#s3">왜 시간 기반 구조여야 했나</a></li>
+      <li><a href="#s4">하루는 이렇게 흘러가요</a></li>
+      <li><a href="#s5">GUI를 만들지 않기로 했어요</a></li>
+      <li><a href="#s6">데이터는 이렇게 흘러요</a></li>
+    </ol>
+  </nav>
+
   <main>
+
+    <aside class="case-toc" aria-label="목차">
+      <div class="case-toc-label">목차</div>
+      <ol>
+        <li><a href="#s1">하루를 관통하는 자기조절 루프</a></li>
+        <li><a href="#s2">먼저, 금동이라는 이름을 빌렸어요</a></li>
+        <li><a href="#s3">왜 시간 기반 구조여야 했나</a></li>
+        <li><a href="#s4">하루는 이렇게 흘러가요</a></li>
+        <li><a href="#s5">GUI를 만들지 않기로 했어요</a></li>
+        <li><a href="#s6">데이터는 이렇게 흘러요</a></li>
+      </ol>
+    </aside>
 
     <header class="case-header">
       <div class="container">
@@ -50,14 +101,14 @@
     <section class="section" style="border-top:none;">
       <div class="container">
 
-        <div class="subsection">
+        <div class="subsection" id="s1">
           <h3 class="subsection-title">하루를 관통하는 자기조절 루프</h3>
           <div class="prose">
             <p>현재 버전의 agentcat은 텔레그램 메시지 하나로 하루를 관통하는 자기조절 루프예요. 사용자는 평소처럼 말하기만 하고, 시스템이 시간대별로 다른 역할을 맡습니다. 어떤 시간엔 조용히 듣고, 어떤 시간엔 먼저 말을 걸고, 어떤 시간엔 일주일의 흐름을 모아 편지로 돌려주는 식이에요.</p>
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s2">
           <h3 class="subsection-title">먼저, 금동이라는 이름을 빌렸어요</h3>
           <div class="prose">
             <p>이 에이전트의 이름은 금동이예요. 회고를 받아주는 고양이 정체성을 부여했습니다. 처음엔 그냥 "AI 봇"이었는데, 만들면서 보니 정체성이 있고 없고가 사용감을 너무 다르게 만들더라구요.</p>
@@ -77,14 +128,14 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s3">
           <h3 class="subsection-title">왜 시간 기반 구조여야 했나</h3>
           <div class="prose">
             <p>개인 회고 도구로서 가장 중요한 건 사용자가 매번 기능을 부르지 않아도 되는 거였어요. 대시보드를 열고 버튼을 누르는 그 순간 이미 인지부하가 생기거든요. 그래서 기능을 시간 흐름 속에 녹였습니다. 하루와 일주일의 자연스러운 리듬 안에서 금동이가 알아서 발동하도록.</p>
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s4">
           <h3 class="subsection-title">하루는 이렇게 흘러가요</h3>
 
           <h4 class="sub-subsection-title">🌅 아침 브리핑 (월·수·금 06:30 / 화·목·토·일 08:00)</h4>
@@ -193,7 +244,7 @@
           </figure>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s5">
           <h3 class="subsection-title">GUI를 만들지 않기로 했어요</h3>
           <div class="prose">
             <p>에이전트를 만들기 시작할 때 당연히 대시보드가 있어야겠지 싶었어요. 실행률 차트, 감정 분포, 북극성별 진행 속도. 전형적인 GUI를 한 번 그려봤습니다.</p>
@@ -231,7 +282,7 @@
           </div>
         </div>
 
-        <div class="subsection">
+        <div class="subsection" id="s6">
           <h3 class="subsection-title">데이터는 이렇게 흘러요</h3>
           <div class="prose">
             <p>전체 흐름을 한 번 정리해두면 이렇게 돼요.</p>
@@ -265,6 +316,64 @@
       </div>
     </div>
   </footer>
+
+  <script>
+  (function () {
+    var sections = [
+      { id: 's1', label: '하루를 관통하는 자기조절 루프' },
+      { id: 's2', label: '먼저, 금동이라는 이름을 빌렸어요' },
+      { id: 's3', label: '왜 시간 기반 구조여야 했나' },
+      { id: 's4', label: '하루는 이렇게 흘러가요' },
+      { id: 's5', label: 'GUI를 만들지 않기로 했어요' },
+      { id: 's6', label: '데이터는 이렇게 흘러요' }
+    ];
+    var wrap   = document.querySelector('.case-progress');
+    var btn    = wrap && wrap.querySelector('.case-progress-btn');
+    var list   = document.getElementById('case-progress-list');
+    var label  = document.getElementById('case-progress-current');
+    var dlinks = document.querySelectorAll('.case-toc a');
+
+    if (btn && list && wrap) {
+      btn.addEventListener('click', function () {
+        var open = wrap.getAttribute('data-open') === 'true';
+        wrap.setAttribute('data-open', String(!open));
+        btn.setAttribute('aria-expanded', String(!open));
+        list.hidden = open;
+      });
+      list.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          wrap.setAttribute('data-open', 'false');
+          btn.setAttribute('aria-expanded', 'false');
+          list.hidden = true;
+        });
+      });
+    }
+
+    if (!('IntersectionObserver' in window)) return;
+    var current = null;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) current = entry.target.id;
+      });
+      if (!current) return;
+      var sec = sections.filter(function (s) { return s.id === current; })[0];
+      if (sec && label) label.textContent = sec.label;
+      if (list) {
+        list.querySelectorAll('a').forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+        });
+      }
+      dlinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) {
+      var el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+  })();
+  </script>
 
 </body>
 </html>
