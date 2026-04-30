@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>금동이봇 설계 원칙 — 박은지</title>
-  <meta name="description" content="agentcat의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
+  <meta name="description" content="금동이봇의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="금동이봇 설계 원칙 — 박은지">
-  <meta property="og:description" content="agentcat의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
+  <meta property="og:description" content="금동이봇의 비전, 네 가지 설계 원칙, 핵심 결정들, 전체 구성. 어떤 기준으로 결정을 내렸는지의 기록.">
   <meta property="og:url" content="https://eunjibak-ai.github.io/cases/design-principles/">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:image" content="https://eunjibak-ai.github.io/assets/images/og.png">
@@ -63,7 +63,7 @@
       <span class="case-progress-arrow" aria-hidden="true">▾</span>
     </button>
     <ol class="case-progress-list" id="case-progress-list" hidden>
-      <li><a href="#s1">agentcat이 하는 일</a></li>
+      <li><a href="#s1">금동이봇이 하는 일</a></li>
       <li><a href="#s2">출발점에 둔 비전</a></li>
       <li><a href="#s3">네 가지 설계 원칙</a></li>
       <li><a href="#s4">핵심이 된 설계 결정들</a></li>
@@ -76,7 +76,7 @@
     <aside class="case-toc" aria-label="목차">
       <div class="case-toc-label">목차</div>
       <ol>
-        <li><a href="#s1">agentcat이 하는 일</a></li>
+        <li><a href="#s1">금동이봇이 하는 일</a></li>
         <li><a href="#s2">출발점에 둔 비전</a></li>
         <li><a href="#s3">네 가지 설계 원칙</a></li>
         <li><a href="#s4">핵심이 된 설계 결정들</a></li>
@@ -86,7 +86,7 @@
 
     <header class="case-header">
       <div class="container">
-        <div class="case-eyebrow">Case 03 · agentcat</div>
+        <div class="case-eyebrow">Case 03 · 금동이봇</div>
         <h1 class="case-page-title">금동이봇<br>설계 원칙</h1>
         <p class="hero-lede" style="max-width:640px;">
           만들면서 가장 어려웠던 건 결정의 기준이었어요.
@@ -100,10 +100,10 @@
       <div class="container">
 
         <div class="subsection" id="s1">
-          <h3 class="subsection-title">agentcat이 하는 일</h3>
+          <h3 class="subsection-title">금동이봇이 하는 일</h3>
           <div class="prose">
             <p>제가 만든 게 결국 뭐였는지 정리하는 데 시간이 좀 걸렸어요. 처음엔 그냥 "회고를 자동화하는 봇"이라고 생각했는데, 만들면서 보니 그건 절반도 안 되더라구요.</p>
-            <p>agentcat은 10년 동안 해오던 회고를 바탕으로 만든, 상태 기반 자기조절 시스템이에요. 사용자가 던진 자연어 메시지를 해석해서 상태를 계산하고, 정책에 따라 말할지 침묵할지 판단하고, 그 흐름을 회고와 패턴으로 정리해줍니다. 자동화라기보다 자기 흐름을 매일 비춰주는 거울에 가까웠습니다.</p>
+            <p>금동이봇은 10년 동안 해오던 회고를 바탕으로 만든, 상태 기반 자기조절 시스템이에요. 사용자가 던진 자연어 메시지를 해석해서 상태를 계산하고, 정책에 따라 말할지 침묵할지 판단하고, 그 흐름을 회고와 패턴으로 정리해줍니다. 자동화라기보다 자기 흐름을 매일 비춰주는 거울에 가까웠습니다.</p>
           </div>
         </div>
 
@@ -111,7 +111,7 @@
           <h3 class="subsection-title">출발점에 둔 비전</h3>
           <div class="prose">
             <p>처음 일주일은 비전 한 단락을 쓰고 또 고치는 데 다 보냈어요. 기능을 먼저 떠올리면 매번 길을 잃더라구요. 그래서 사용자에게 어떤 태도로 다가갈지부터 적어두고, 모든 결정을 이 안에서 내려야겠다고 정했습니다.</p>
-            <blockquote>agentcat은 텔레그램에 던지는 모든 메시지의 의도와 감정을 판단해서 기록해줍니다. 내 뇌의 '비서'이자 '외장하드'가 되어, 기록의 부담은 사라지고 자기 이해를 위한 데이터는 남습니다. 데이터의 패턴을 읽어 '성장과 회고'라는 본질에 집중할 수 있도록 합니다.</blockquote>
+            <blockquote>금동이봇은 텔레그램에 던지는 모든 메시지의 의도와 감정을 판단해서 기록해줍니다. 내 뇌의 '비서'이자 '외장하드'가 되어, 기록의 부담은 사라지고 자기 이해를 위한 데이터는 남습니다. 데이터의 패턴을 읽어 '성장과 회고'라는 본질에 집중할 수 있도록 합니다.</blockquote>
             <p>핵심은 기록 자체가 또 하나의 일이 되지 않을 것. 사용자는 평소처럼 말하기만 하면 된다는 거였어요. 이 한 문장이 나중에 '태그리스 입력'이라는 결정의 출발점이 됩니다.</p>
           </div>
         </div>
@@ -204,7 +204,7 @@
   <script>
   (function () {
     var sections = [
-      { id: 's1', label: 'agentcat이 하는 일' },
+      { id: 's1', label: '금동이봇이 하는 일' },
       { id: 's2', label: '출발점에 둔 비전' },
       { id: 's3', label: '네 가지 설계 원칙' },
       { id: 's4', label: '핵심이 된 설계 결정들' },
