@@ -1,1 +1,1 @@
-# eunjibak-ax.github.io
+# eunjibak-ai.github.io
